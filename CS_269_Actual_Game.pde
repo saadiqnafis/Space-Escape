@@ -2,11 +2,14 @@
 
 class Background
 {
+  // We create four arrays that stores the value of the x, y coordinates, width and height of our platforms
   int platformX[] = new int[60]; 
   int platformY[] = new int[60];
   int platformWidth[] = new int[60];
   int platformHeight[] = new int[60];
   int level = 1;
+
+// These are the images that we will use
   PImage p1;
     PImage p2;
     PImage p3;
@@ -33,7 +36,8 @@ class Background
     PImage e5;
     
     PImage rocket;
-  
+
+// Here, we initialize the platforms by setting their x,y coordinates, their heights and widths
   void platformInit()
   {
     fill(0);
@@ -571,6 +575,7 @@ class Background
       platformWidth[41] = 950;
       platformHeight[41] = 50;
     }
+  // We load the images of the platforms that we declared previously
     p1 = loadImage("P1.png");
     p2 = loadImage("P2.png");
     p3 = loadImage("P3.png");
@@ -725,7 +730,10 @@ class Background
       }
     }
   }
-  
+
+
+// When the players move left and right, to create the effect that the player is moving, we move the platforms
+
   void movePlatforms()
   {
     if(player.getPlayerX() >= 300 && keyPressed) //(keyCode == RIGHT || keyCode == UP))
@@ -779,7 +787,8 @@ class Background
   {
     return platformHeight;
   }
-  
+
+// This function makes the player move to the left-most wall
   void moveToLeftWall() {
     if (player.getPlayerX() > platformX[2] ) {
     player.movePlayer();}
